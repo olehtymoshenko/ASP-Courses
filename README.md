@@ -59,7 +59,7 @@
 - [x] Создание Minimal API
 - [x] Meetup Rest CRUD API
 - [x] Переход от Minimal API к полноценым контроллерам
-- [ ] Data Transfer Objects
+- [x] Data Transfer Objects
 - [ ] Валидация
 - [ ] Entity Framework Core
 - [ ] Фильтрование, сортировка и пагинация
