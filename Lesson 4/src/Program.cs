@@ -21,7 +21,7 @@ app.MapPost("/meetups", ([FromBody] Meetup newMeetup) =>
     newMeetup.Id = Guid.NewGuid();
     meetups.Add(newMeetup);
 
-    return Results.Created($"/meetups/{newMeetup.Id}", newMeetup);
+    return Results.Ok(newMeetup);
 });
 
 // cRud - read
