@@ -60,6 +60,7 @@
 - [x] Meetup Rest CRUD API
 - [x] Переход от Minimal API к полноценым контроллерам
 - [x] Data Transfer Objects
+- [x] OpenAPI документация
 - [ ] Валидация
 - [ ] Entity Framework Core
 - [ ] Фильтрование, сортировка и пагинация
