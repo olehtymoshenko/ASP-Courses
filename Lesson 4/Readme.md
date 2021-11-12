@@ -171,78 +171,77 @@ app.MapPut("/meetups/{id:guid}", ([FromRoute] Guid id, [FromBody] Meetup updated
 
 В результате файл `Program.cs` теперь выглядит так:
 ```csharp
-01:  using System.ComponentModel.DataAnnotations;
-02:  using Microsoft.AspNetCore.Mvc;
-03:  
-04:  var builder = WebApplication.CreateBuilder(args);
-05:  
-06:  builder.Services.AddEndpointsApiExplorer();
-07:  builder.Services.AddSwaggerGen();
-08:  
-09:  var app = builder.Build();
-10:  
-11:  if (app.Environment.IsDevelopment())
-12:  {
-13:      app.UseSwagger();
-14:      app.UseSwaggerUI();
-15:  }
-16:  
-17:  var meetups = new List<Meetup>();
-18:  
-19:  // Crud - Create
-20:  app.MapPost("/meetups", ([FromBody] Meetup newMeetup) =>
-21:  {
-22:      newMeetup.Id = Guid.NewGuid();
-23:      meetups.Add(newMeetup);
-24:  
-25:      return Results.Created($"/meetups/{newMeetup.Id}", newMeetup);
-26:  });
-27:  
-28:  // cRud - read
-29:  app.MapGet("/meetups", () => Results.Ok(meetups));
-30:  
-31:  // crUd - update
-32:  app.MapPut("/meetups/{id:guid}", ([FromRoute] Guid id, [FromBody] Meetup updatedMeetup) =>
-33:  {
-34:      var oldMeetup = meetups.SingleOrDefault(meetup => meetup.Id == id);
-35:  
-36:      // meetup with provided id does not exist
-37:      if (oldMeetup is null)
-38:      {
-39:          return Results.NotFound();
-40:      }
-41:  
-42:      oldMeetup.Topic = updatedMeetup.Topic;
-43:      oldMeetup.Place = updatedMeetup.Place;
-44:      oldMeetup.Duration = updatedMeetup.Duration;
-45:  
-46:      return Results.NoContent();
-47:  });
-48:  
-49:  // cruD - delete
-50:  app.MapDelete("/meetups/{id:guid}", ([FromRoute] Guid id) =>
-51:  {
-52:      var meetupToDelete = meetups.SingleOrDefault(meetup => meetup.Id == id);
-53:  
-54:      // meetup with provided id does not exist
-55:      if (meetupToDelete is null)
-56:      {
-57:          return Results.NotFound();
-58:      }
-59:  
-60:      meetups.Remove(meetupToDelete);
-61:      return Results.Ok(meetupToDelete);
-62:  });
-63:  
-64:  app.Run();
-65:  
-66:  class Meetup
-67:  {
-68:      public Guid? Id { get; set; }
-69:      public string Topic { get; set; }
-70:      public string Place { get; set; }
-71:      public int Duration { get; set; }
-72:  }
+01:  using Microsoft.AspNetCore.Mvc;
+02:  
+03:  var builder = WebApplication.CreateBuilder(args);
+04:  
+05:  builder.Services.AddEndpointsApiExplorer();
+06:  builder.Services.AddSwaggerGen();
+07:  
+08:  var app = builder.Build();
+09:  
+10:  if (app.Environment.IsDevelopment())
+11:  {
+12:      app.UseSwagger();
+13:      app.UseSwaggerUI();
+14:  }
+15:  
+16:  var meetups = new List<Meetup>();
+17:  
+18:  // Crud - Create
+19:  app.MapPost("/meetups", ([FromBody] Meetup newMeetup) =>
+20:  {
+21:      newMeetup.Id = Guid.NewGuid();
+22:      meetups.Add(newMeetup);
+23:  
+24:      return Results.Created($"/meetups/{newMeetup.Id}", newMeetup);
+25:  });
+26:  
+27:  // cRud - read
+28:  app.MapGet("/meetups", () => Results.Ok(meetups));
+29:  
+30:  // crUd - update
+31:  app.MapPut("/meetups/{id:guid}", ([FromRoute] Guid id, [FromBody] Meetup updatedMeetup) =>
+32:  {
+33:      var oldMeetup = meetups.SingleOrDefault(meetup => meetup.Id == id);
+34:  
+35:      // meetup with provided id does not exist
+36:      if (oldMeetup is null)
+37:      {
+38:          return Results.NotFound();
+39:      }
+40:  
+41:      oldMeetup.Topic = updatedMeetup.Topic;
+42:      oldMeetup.Place = updatedMeetup.Place;
+43:      oldMeetup.Duration = updatedMeetup.Duration;
+44:  
+45:      return Results.NoContent();
+46:  });
+47:  
+48:  // cruD - delete
+49:  app.MapDelete("/meetups/{id:guid}", ([FromRoute] Guid id) =>
+50:  {
+51:      var meetupToDelete = meetups.SingleOrDefault(meetup => meetup.Id == id);
+52:  
+53:      // meetup with provided id does not exist
+54:      if (meetupToDelete is null)
+55:      {
+56:          return Results.NotFound();
+57:      }
+58:  
+59:      meetups.Remove(meetupToDelete);
+60:      return Results.Ok(meetupToDelete);
+61:  });
+62:  
+63:  app.Run();
+64:  
+65:  class Meetup
+66:  {
+67:      public Guid? Id { get; set; }
+68:      public string Topic { get; set; }
+69:      public string Place { get; set; }
+70:      public int Duration { get; set; }
+71:  }
 ```
 
 Теперь мы можем проверить, как работают новые endpoint'ы:
