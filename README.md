@@ -58,8 +58,7 @@
 - [x] Настройка окружения
 - [x] Создание Minimal API
 - [x] Meetup Rest CRUD API
-- [ ] Вынесение раутов Minimal API в отдельные файлы
-- [ ] Переход от Minimal API к отдельным контроллерам
+- [x] Переход от Minimal API к полноценым контроллерам
 - [ ] Data Transfer Objects
 - [ ] Валидация
 - [ ] Entity Framework Core
