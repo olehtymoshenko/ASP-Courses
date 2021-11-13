@@ -62,5 +62,6 @@
 - [x] Data Transfer Objects
 - [x] OpenAPI документация
 - [x] Валидация
-- [ ] Entity Framework Core
+- [x] Использование EF Core
+- [ ] Настройка EF Core
 - [ ] Фильтрование, сортировка и пагинация
