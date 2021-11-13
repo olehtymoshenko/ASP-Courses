@@ -190,6 +190,7 @@ migrationBuilder.CreateTable(
 | Topic    | text    |           | not null |         |
 | Place    | text    |           | not null |         |
 | Duration | integer |           | not null |         |
+
 При работе с `PostgreSQL` принято использовать `snake_case` для всех имён: это просто удобнее, т.к. не нужно писать
 `"Meetup"` и достаточно написать просто `meetup`.
 
