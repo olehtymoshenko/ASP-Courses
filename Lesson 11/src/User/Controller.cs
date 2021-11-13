@@ -21,7 +21,7 @@ public class UserController : ControllerBase
     /// <response code="200">Newly registered user.</response>
     /// <response code="409">Failed to register a user: username already taken.</response>
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ReadUserDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status409Conflict)]
     public async Task<IActionResult> RegisterNewUser([FromBody] RegisterUserDto registerDto)
     {
