@@ -364,6 +364,7 @@ dotnet ef database update
 | :----- | :-------------------- | :---- | :------ |
 | public | Meetups               | table | db_user |
 | public | __EFMigrationsHistory | table | db_user |
+
 Таблица `Meetups` содержит все митапы. На данный момент она пуста. Таблица `__EFMigrationsHistory` содержит список всех
 применённых в БД миграций.
 
@@ -375,6 +376,7 @@ SELECT * FROM "__EFMigrationsHistory";
 | MigrationId               | ProductVersion |
 | :------------------------ | :------------- |
 | xxxxxxxxxxxxxx_AddMeetups | 6.0.0          |
+
 Как мы видим, наша миграция была применена успешно.
 
 
