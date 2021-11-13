@@ -61,6 +61,6 @@
 - [x] Переход от Minimal API к полноценым контроллерам
 - [x] Data Transfer Objects
 - [x] OpenAPI документация
-- [ ] Валидация
+- [x] Валидация
 - [ ] Entity Framework Core
 - [ ] Фильтрование, сортировка и пагинация
