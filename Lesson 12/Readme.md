@@ -187,7 +187,7 @@ action, который будет требовать аутентифицров�
 Создадим action, который будет требовать `Access Token` и по запросу `GET /users/who-am-i` будет возвращать информацию о
 его владельце:
 ```csharp
-[HttpGet("/who-am-i")]
+[HttpGet("who-am-i")]
 [Authorize]
 public async Task<IActionResult> GetCurrentUserInfo()
 {
@@ -334,7 +334,7 @@ internal class OpenApiAuthFilter : IOperationFilter
 Пользователь может авторизоваться и посылать авторизированные запросы. Осталась только одна проблема – авторизовываться
 нужно каждые 15 минут, т.к. протухает `AT`. Решим эту проблему и добавим action для рефреша `Token Pair`'а:
 ```csharp
-[HttpPost("/refresh")]
+[HttpPost("refresh")]
 public async Task<IActionResult> RefreshTokenPair([FromBody] string refreshToken)
 {
     var jwtSecret = Encoding.ASCII.GetBytes(_configuration["JwtAuth:Secret"]);

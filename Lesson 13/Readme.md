@@ -243,7 +243,7 @@ public class UserController : ControllerBase
         _tokenHelper = tokenHelper;
     }
     
-    [HttpPost("/authenticate")]
+    [HttpPost("authenticate")]
     public async Task<IActionResult> AuthenticateUser([FromBody] AuthenticateUserDto authenticateDto)
     {
         var user = await _context.Users.FirstOrDefaultAsync(user => user.Username == authenticateDto.Username);
@@ -275,7 +275,7 @@ public class UserController : ControllerBase
         return Ok(tokenPairDto);
     }
 
-    [HttpPost("/refresh")]
+    [HttpPost("refresh")]
     public async Task<IActionResult> RefreshTokenPair([FromBody] string refreshToken)
     {
         var refreshTokenClaims = _tokenHelper.ParseToken(refreshToken);

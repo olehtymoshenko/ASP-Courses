@@ -33,7 +33,7 @@ public class UserController : ControllerBase
 
     /// <summary>Get information about the current user.</summary>
     /// <response code="200">Current user information.</response>
-    [HttpGet("/who-am-i")]
+    [HttpGet("who-am-i")]
     [Authorize]
     [ProducesResponseType(typeof(ReadUserDto), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetCurrentUserInfo()
@@ -51,7 +51,7 @@ public class UserController : ControllerBase
     /// <param name="registerDto">User registration information.</param>
     /// <response code="200">Newly registered user.</response>
     /// <response code="409">Failed to register a user: username already taken.</response>
-    [HttpPost("/register")]
+    [HttpPost("register")]
     [ProducesResponseType(typeof(ReadUserDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status409Conflict)]
     public async Task<IActionResult> RegisterNewUser([FromBody] RegisterUserDto registerDto)
@@ -77,7 +77,7 @@ public class UserController : ControllerBase
     /// <response code="200">Authentication token pair for specified user credentials.</response>
     /// <response code="404">User with specified username does not exist.</response>
     /// <response code="409">Incorrect password was specified.</response>
-    [HttpPost("/authenticate")]
+    [HttpPost("authenticate")]
     [ProducesResponseType(typeof(TokenPairDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -113,7 +113,7 @@ public class UserController : ControllerBase
     /// <response code="200">A new token pair.</response>
     /// <response code="400">Invalid refresh token was provided.</response>
     /// <response code="409">Provided refresh token has already been used.</response>
-    [HttpPost("/refresh")]
+    [HttpPost("refresh")]
     [ProducesResponseType(typeof(TokenPairDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status409Conflict)]

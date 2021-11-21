@@ -161,7 +161,7 @@ public class UserController : ControllerBase
         _mapper = mapper;
     }
     
-    [HttpGet("/who-am-i")]
+    [HttpGet("who-am-i")]
     [Authorize]
     public async Task<IActionResult> GetCurrentUserInfo()
     {
@@ -174,7 +174,7 @@ public class UserController : ControllerBase
         return Ok(readDto);
     }
     
-    [HttpPost("/register")]
+    [HttpPost("register")]
     public async Task<IActionResult> RegisterNewUser([FromBody] RegisterUserDto registerDto)
     {
         var usernameTaken = await _context.Users.AnyAsync(user => user.Username == registerDto.Username);
@@ -191,7 +191,7 @@ public class UserController : ControllerBase
         return Ok(readDto);
     }
     
-    [HttpPost("/authenticate")]
+    [HttpPost("authenticate")]
     public async Task<IActionResult> AuthenticateUser([FromBody] AuthenticateUserDto authenticateDto)
     {
         var user = await _context.Users.FirstOrDefaultAsync(user => user.Username == authenticateDto.Username);
@@ -219,7 +219,7 @@ public class UserController : ControllerBase
         return Ok(tokenPairDto);
     }
     
-    [HttpPost("/refresh")]
+    [HttpPost("refresh")]
     public async Task<IActionResult> RefreshTokenPair([FromBody] string refreshToken)
     {
         var refreshTokenClaims = _tokenHelper.ParseToken(refreshToken);
