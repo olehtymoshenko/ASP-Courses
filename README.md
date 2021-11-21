@@ -70,6 +70,7 @@
 - [x] Использование EF Core Fluent API
 - [x] Расширение API - запись на митапы
 - [x] Null reference types
+- [ ] Integration testing Web APi
 - [ ] Seed data
 - [ ] Расширение API - организаторы митапов
 - [ ] Фильтрование, сортировка и пагинация
