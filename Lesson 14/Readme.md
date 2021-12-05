@@ -30,7 +30,7 @@ var readDto = new ReadUserDto
 другой, либо создать объект на основе другого.
 
 Для начала работы с `AutoMapper` нам нужно утсановить библиотеку
-[AutoMapper.Extensions.Microsoft.DependencyInjection](AutoMapper.Extensions.Microsoft.DependencyInjection). Также нам
+[AutoMapper.Extensions.Microsoft.DependencyInjection](https://www.nuget.org/packages/AutoMapper.Extensions.Microsoft.DependencyInjection). Также нам
 нужно добавить сервисы `AutoMapper` в DI контейнер, добавив следующий код в модуль `Program`:
 ```csharp
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
